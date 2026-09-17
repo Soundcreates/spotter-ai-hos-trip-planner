@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: hos-trip-planner-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_DEBUG
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.13.0"
